@@ -35,3 +35,23 @@ class Solution {
 통과 (0.15ms, 74.1MB)
 
 ## 참고
+Java - Map getOrDefault() Method - 찾는 키가 존재한다면 찾는 키의 값을 반환하고 없다면 기본 값을 반환한다.  
+> getOrDefault(Object key, V defaultValue)
+
+###  다른 풀이
+```java
+import java.util.*;
+
+class Solution {
+    public int[] solution(String s) {
+        int[] answer = new int[s.length()];
+        HashMap<Character,Integer> map = new HashMap<>();
+        for(int i=0; i<s.length();i++){
+            char ch = s.charAt(i);
+            answer[i] = i-map.getOrDefault(ch,i+1);
+            map.put(ch,i);
+        }
+        return answer;
+    }
+}
+```
